@@ -1,0 +1,14 @@
+version: "2"
+services:
+  remotely:
+    image: immybot/remotely:latest
+    container_name: remotely
+    expose:
+      - 5000
+    volumes:
+      - /var/www/remotely:/remotely-data
+
+networks:
+  default:
+    external:
+      name: caddy
