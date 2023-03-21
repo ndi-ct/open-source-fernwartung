@@ -1,0 +1,3 @@
+remotely.example.com {
+    reverse_proxy remotely:5000
+}
