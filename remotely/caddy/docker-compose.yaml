@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - certs-volume:/data
+      - caddy_config:/config
+
+volumes:
+  certs-volume:
+  caddy_config:
+
+networks:
+  default:
+    external:
+      name: caddy
