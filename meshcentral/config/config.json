@@ -1,0 +1,49 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Ylianst/MeshCentral/master/meshcentral-config-schema.json",
+  "settings": {
+    "plugins":{"enabled": false},
+    "_mongoDb": null,
+    "cert": "meshcentral.example.com",
+    "_WANonly": true,
+    "_LANonly": true,
+    "sessionKey": "",
+    "port": 443,
+    "_aliasPort": 443,
+    "redirPort": 80,
+    "_redirAliasPort": 80,
+    "AgentPong": 300,
+    "TLSOffload": false,
+    "SelfUpdate": false,
+    "AllowFraming": false,
+    "WebRTC": false
+  },
+  "domains": {
+    "": {
+      "_title": "MyServer",
+      "_title2": "Servername",
+      "minify": true,
+      "NewAccounts": false,
+      "localSessionRecording": true,
+      "_userNameIsEmail": true,
+      "_certUrl": "my.reverse.proxy"
+      "sessionRecording": {
+        "onlySelectedUsers": true,
+        "onlySelectedUserGroups": true,
+        "onlySelectedDeviceGroups": true,
+        "filepath": "~/recordings",
+        "index": true,
+        "maxRecordings": 10,
+        "maxRecordingDays": 15,
+        "maxRecordingSizeMegabytes": 3,
+        "__protocols__": "Is an array: 1 = Terminal, 2 = Desktop, 5 = Files, 100 = Intel AMT WSMAN, 101 = Intel AMT Redirection, 200 = Messenger",
+        "protocols": [ 1, 2, 101 ]
+      },
+    }
+  },
+  "_letsencrypt": {
+    "__comment__": "Requires NodeJS 8.x or better, Go to https://letsdebug.net/ first before>",
+    "_email": "mail@example.com",
+    "_names": "meshcentral.example.com",
+    "_production": false
+  }
+}
