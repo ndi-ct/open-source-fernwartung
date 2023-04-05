@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  meshcentral:
+    restart: always
+    container_name: meshcentral
+    image: ghcr.io/ylianst/meshcentral:latest
+    ports:
+      - 443:443
+      - 80:80
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=meshcentral.example.com #Domain anpassen
+      - USE_MONGODB=false
+      - REVERSE_PROXY=false
+      - REVERSE_PROXY_TLS_PORT=
+      - IFRAME=false
+      - ALLOW_NEW_ACCOUNTS=false
+      - WEBRTC=false
+      - ALLOWPLUGINS=false
+      - LOCALSESSIONRECORDING=true
+      - MINIFY=true
+    volumes:
+      - ./meshcentral/data:/opt/meshcentral/meshcentral-data
+      - ./meshcentral/user_files:/opt/meshcentral/meshcentral-files
+      - ./meshcentral/backup:/opt/meshcentral/meshcentral-backups
+      - ./meshcentral/web:/opt/meshcentral/meshcentral-web
